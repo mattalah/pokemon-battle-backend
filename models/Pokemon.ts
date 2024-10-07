@@ -14,7 +14,7 @@ class PokemonModel {
     const { data, error } = await supabase
       .from('pokemon')
       .select('*');
-      console.log('get all pokemons mod',{ data, error });
+
     if (error) throw new Error(error.message);
     return data as Pokemon[];
   }

@@ -9,7 +9,7 @@ export interface Team {
 class TeamModel {
   static async getAll(): Promise<Team[]> {
     const { data, error } = await supabase
-      .from('teams')
+      .from('team')
       .select('*');
 
     if (error) throw new Error(error.message);
@@ -18,7 +18,7 @@ class TeamModel {
 
   static async create(team: Partial<Team>): Promise<Team> {
     const { data, error } = await supabase
-      .from('teams')
+      .from('team')
       .insert([team])
       .single();
 
